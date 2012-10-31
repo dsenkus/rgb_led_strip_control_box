@@ -23,10 +23,16 @@ Pulser::Pulser(Led &led, int step_, int delay_, int start_at, int end_at)
   next_cycle = millis();
 }
 
+// repeatable pulser will continue pulsing indefinitely
+// non repeatable pulser will stop once it reaches it's max value
 void Pulser::setRepeatable(bool val){
   is_repeatable = val;
 }
 
+// reversable pulser will reverse fading direction once max/min value is reached
+// if pulser is also repeatable it will pulse indefinetly fading from low to
+// high and vice versa
+// if pulser is not repeatable it will reverse direction only once
 void Pulser::setReversable(bool val){
   is_reversable = val;
 }
